@@ -25,7 +25,7 @@
 
 @end
 
-@interface SOLAddLocationViewController : UIViewController <UISearchDisplayDelegate, UITableViewDelegate,
+@interface SOLAddLocationViewController : UIViewController <UITableViewDelegate,
                                                                 UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>
 
 // -----

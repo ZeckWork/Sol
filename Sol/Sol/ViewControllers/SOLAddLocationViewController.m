@@ -20,7 +20,7 @@
 @property (strong, nonatomic) NSMutableArray                *searchResults;
 
 // Location search results display controller
-@property (strong, nonatomic) UISearchDisplayController     *searchController;
+@property (strong, nonatomic) UISearchController     *searchController;
 
 // -----
 // @name Subviews
@@ -66,12 +66,13 @@
         self.searchBar.delegate = self;
         
         // Initialize and configure search controller
-        self.searchController = [[UISearchDisplayController alloc]initWithSearchBar:self.searchBar contentsController:self];
+        self.searchController = [[UISearchController alloc] initWithNibName:NULL bundle:NULL];
         self.searchController.delegate = self;
-        self.searchController.searchResultsDelegate = self;
-        self.searchController.searchResultsDataSource = self;
-        self.searchController.searchResultsTitle = @"Add Location";
-        self.searchController.displaysSearchBarInNavigationBar = YES;
+        self.searchController.delegate = self;
+//        self.searchController.searchResultsDelegate = self;
+//        self.searchController.searchResultsDataSource = self;
+//        self.searchController.searchResultsTitle = @"Add Location";
+//        self.searchController.displaysSearchBarInNavigationBar = YES;
         self.searchController.navigationItem.rightBarButtonItems = @[self.doneButton];
         self.navigationBar.items = @[self.searchController.navigationItem];
     }
@@ -84,7 +85,7 @@
 {
     [super viewDidAppear:animated];
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
-    [self.searchController setActive:YES animated:NO];
+    [self.searchController setActive:YES];
     [self.searchController.searchBar becomeFirstResponder];
 }
 
@@ -92,7 +93,7 @@
 {
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    [self.searchController setActive:NO animated:NO];
+    [self.searchController setActive:NO];
     [self.searchController.searchBar resignFirstResponder];
 }
 
@@ -147,30 +148,30 @@
     }
     
     // Configure cell for the search results table view
-    if(tableView == self.searchController.searchResultsTableView) {
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor whiteColor];
-        CLPlacemark *placemark = [self.searchResults objectAtIndex:indexPath.row];
-        NSString *city = placemark.locality;
-        NSString *country = placemark.country;
-        NSString *cellText = [NSString stringWithFormat:@"%@, %@", city, country];
-        if([[country lowercaseString] isEqualToString:@"united states"]) {
-            NSString *state = placemark.administrativeArea;
-            cellText = [NSString stringWithFormat:@"%@, %@", city, state];
-        }
-        cell.textLabel.text = cellText;
-    }
+//    if(tableView == self.searchController.searchResultsTableView) {
+//        cell.backgroundColor = [UIColor clearColor];
+//        cell.textLabel.textColor = [UIColor whiteColor];
+//        CLPlacemark *placemark = [self.searchResults objectAtIndex:indexPath.row];
+//        NSString *city = placemark.locality;
+//        NSString *country = placemark.country;
+//        NSString *cellText = [NSString stringWithFormat:@"%@, %@", city, country];
+//        if([[country lowercaseString] isEqualToString:@"united states"]) {
+//            NSString *state = placemark.administrativeArea;
+//            cellText = [NSString stringWithFormat:@"%@, %@", city, state];
+//        }
+//        cell.textLabel.text = cellText;
+//    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView == self.searchController.searchResultsTableView) {
-        [tableView cellForRowAtIndexPath:indexPath].selected = NO;
-        CLPlacemark *placemark = [self.searchResults objectAtIndex:indexPath.row];
-        [self.delegate didAddLocationWithPlacemark:placemark];
-        [self.delegate dismissAddLocationViewController];
-    }
+//    if(tableView == self.searchController.searchResultsTableView) {
+//        [tableView cellForRowAtIndexPath:indexPath].selected = NO;
+//        CLPlacemark *placemark = [self.searchResults objectAtIndex:indexPath.row];
+//        [self.delegate didAddLocationWithPlacemark:placemark];
+//        [self.delegate dismissAddLocationViewController];
+//    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
