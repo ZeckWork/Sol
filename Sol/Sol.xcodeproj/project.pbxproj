@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9413F4972A983841004307FA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413F4962A983841004307FA /* StringExtension.swift */; };
+		9413F49C2A9C3422004307FA /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9413F49B2A9C3422004307FA /* mock.json */; };
 		DD3965BC17F8DE2A00977422 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3965BB17F8DE2A00977422 /* UIImage+ImageEffects.m */; };
 		DD43184418C5D2540022E87E /* Resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD43184318C5D2540022E87E /* Resources.xcassets */; };
 		DD46272A17ADC3A1000A6A33 /* SOLWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD46272917ADC3A1000A6A33 /* SOLWeatherView.m */; };
@@ -34,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9413F4962A983841004307FA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Model/Categories/StringExtension.swift; sourceTree = "<group>"; };
+		9413F49A2A9C0ACF004307FA /* Sol-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sol-Bridging-Header.h"; sourceTree = "<group>"; };
+		9413F49B2A9C3422004307FA /* mock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock.json; sourceTree = "<group>"; };
 		DD0C344117B517950024AD9A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DD0C344317B5179C0024AD9A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DD3965BA17F8DE2A00977422 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "Model/Categories/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -152,6 +157,7 @@
 				DD4F967D17A8994300E0E7D0 /* InfoPlist.strings */,
 				DD4F968017A8994300E0E7D0 /* main.m */,
 				DD4F968217A8994300E0E7D0 /* Sol-Prefix.pch */,
+				9413F49B2A9C3422004307FA /* mock.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -211,6 +217,8 @@
 				DD3965BB17F8DE2A00977422 /* UIImage+ImageEffects.m */,
 				DD9388E417B6D898004C5F42 /* NSString+Substring.h */,
 				DD9388E517B6D898004C5F42 /* NSString+Substring.m */,
+				9413F49A2A9C0ACF004307FA /* Sol-Bridging-Header.h */,
+				9413F4962A983841004307FA /* StringExtension.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -262,7 +270,8 @@
 				ORGANIZATIONNAME = "Comyar Zaheri";
 				TargetAttributes = {
 					DD4F967017A8994300E0E7D0 = {
-						DevelopmentTeam = TRMC2X2YJ7;
+						DevelopmentTeam = 297D5XWLQT;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -271,6 +280,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = DD4F966817A8994200E0E7D0;
@@ -292,6 +302,7 @@
 				DD8929A71A3A920E009207F3 /* API_KEY in Resources */,
 				DD43184418C5D2540022E87E /* Resources.xcassets in Resources */,
 				DD4F967F17A8994300E0E7D0 /* InfoPlist.strings in Resources */,
+				9413F49C2A9C3422004307FA /* mock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +319,7 @@
 				DD46272A17ADC3A1000A6A33 /* SOLWeatherView.m in Sources */,
 				DDB7B8E517ECF59100857D15 /* SOLAddLocationViewController.m in Sources */,
 				DD9388E617B6D898004C5F42 /* NSString+Substring.m in Sources */,
+				9413F4972A983841004307FA /* StringExtension.swift in Sources */,
 				DD46272D17ADC3E6000A6A33 /* SOLWeatherData.m in Sources */,
 				DD4F968117A8994300E0E7D0 /* main.m in Sources */,
 				DD548DE717A8ADCC00E08E29 /* SOLPagingScrollView.m in Sources */,
@@ -404,15 +416,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 297D5XWLQT;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sol/Sol-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Sol/SupportingFiles/Sol-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/zeck/Developer/Sol/Sol/Sol/Sol-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -423,15 +441,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 297D5XWLQT;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sol/Sol-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Sol/SupportingFiles/Sol-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/zeck/Developer/Sol/Sol/Sol/Sol-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

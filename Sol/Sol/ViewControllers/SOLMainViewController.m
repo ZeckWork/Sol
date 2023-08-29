@@ -110,6 +110,7 @@
         
         //  Initialize and configure the location manager and start updating the user's current location
         self.locationManager = [[CLLocationManager alloc]init];
+        [self.locationManager requestWhenInUseAuthorization];
         self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         self.locationManager.distanceFilter = 3000;
         self.locationManager.delegate = self;
@@ -259,8 +260,7 @@
 
 - (void)setBlurredOverlayImage
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
-        
+    dispatch_async(dispatch_get_main_queue(), ^{
         //  Take a screen shot of this controller's view
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0.0);
         CGContextRef context = UIGraphicsGetCurrentContext();
@@ -288,7 +288,7 @@
 - (void)updateWeatherData
 {
     for(SOLWeatherView *weatherView in self.pagingScrollView.subviews) {
-        if(weatherView.local == NO) {
+//        if(weatherView.local == NO) {
             
             //  Only update non local weather data
             SOLWeatherData *weatherData = [self.weatherData objectForKey:[NSNumber numberWithInteger:weatherView.tag]];
@@ -317,7 +317,7 @@
                 }];
                 
             }
-        }
+//        }
     }
 }
 
@@ -421,7 +421,7 @@
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     //  Only add the local weather view if location services authorized
-    if(status == kCLAuthorizationStatusAuthorized) {
+    if(status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         [self initializeLocalWeatherView];
         [self initializeNonlocalWeatherViews];
         [self setBlurredOverlayImage];

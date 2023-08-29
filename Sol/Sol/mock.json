@@ -1,0 +1,68 @@
+{
+    "current_observation": {
+        "temp_f": 72.5,
+        "temp_c": 22.5
+    },
+    "forecast": {
+        "simpleforecast": {
+            "forecastday": [
+                {
+                    "high": {
+                        "fahrenheit": 80.2,
+                        "celsius": 26.8
+                    },
+                    "low": {
+                        "fahrenheit": 65.7,
+                        "celsius": 18.7
+                    },
+                    "date": {
+                        "weekday": "Monday"
+                    },
+                    "conditions": "Partly Cloudy"
+                },
+                {
+                    "high": {
+                        "fahrenheit": 78.9,
+                        "celsius": 26.1
+                    },
+                    "low": {
+                        "fahrenheit": 64.3,
+                        "celsius": 17.9
+                    },
+                    "date": {
+                        "weekday": "Tuesday"
+                    },
+                    "conditions": "Sunny"
+                },
+                {
+                    "high": {
+                        "fahrenheit": 75.6,
+                        "celsius": 24.2
+                    },
+                    "low": {
+                        "fahrenheit": 61.8,
+                        "celsius": 16.6
+                    },
+                    "date": {
+                        "weekday": "Wednesday"
+                    },
+                    "conditions": "Cloudy"
+                },
+                {
+                    "high": {
+                        "fahrenheit": 72.1,
+                        "celsius": 22.3
+                    },
+                    "low": {
+                        "fahrenheit": 59.4,
+                        "celsius": 15.3
+                    },
+                    "date": {
+                        "weekday": "Thursday"
+                    },
+                    "conditions": "Rainy"
+                }
+            ]
+        }
+    }
+}
