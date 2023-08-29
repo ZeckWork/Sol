@@ -128,10 +128,9 @@
 
 - (NSURLRequest *)urlRequestForLocation:(CLLocation *)location
 {
-    static NSString *baseURL =  @"http://api.wunderground.com/api/";
-    static NSString *parameters = @"/forecast/conditions/q/";
+    static NSString *baseURL =  @"https://mock-kv4eofzl5a-uc.a.run.app";
     CLLocationCoordinate2D coordinates = location.coordinate;
-    NSString *requestURL = [NSString stringWithFormat:@"%@%@%@%f,%f.json", baseURL, self.key, parameters,
+    NSString *requestURL = [NSString stringWithFormat:@"%@?lat=%f&long=%f", baseURL,
                             coordinates.latitude, coordinates.longitude];
     NSURL *url = [NSURL URLWithString:requestURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
